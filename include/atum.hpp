@@ -290,7 +290,7 @@ inline namespace ATUM_VERSION_NS
 
         constexpr nifty_init() : _count(0) {}
 
-        constexpr T& reference() const noexcept
+        constexpr T& reference() noexcept
         {
             return _storage.get();
         }
