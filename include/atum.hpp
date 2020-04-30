@@ -290,7 +290,7 @@ inline namespace ATUM_VERSION_NS
 
         constexpr nifty_init() : _count(0) {}
 
-        constexpr T& reference() noexcept
+        constexpr element_type& reference() noexcept
         {
             return _storage.get();
         }
@@ -301,7 +301,7 @@ inline namespace ATUM_VERSION_NS
                 // First one to execute, initialize.
                 Initializer::template init<T>(_storage.memory());
         }
-        void destroy() noexcept
+        void destroy() && noexcept
         {
             if (--_count == 0)
                 // Last one to execute, destroy.
