@@ -134,7 +134,7 @@ ATUM_CONSTINIT atum::manual_init<Global> global;
 int main()
 {
     // We need to ensure that `logger` is initialized before `global`.
-    atum::scoped_initializer<global, copy> initializer;
+    atum::scoped_initializer<logger, global> initializer;
 
     // You can now access the variables.
     logger->log(*global);
